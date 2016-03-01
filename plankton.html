@@ -1,0 +1,54 @@
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-type" content="text/html; UTF-8" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+function myTimer(){
+  var date = new Date();
+  var x,x1,d,s,sum,val;    
+  var format = [
+      (date.getHours()),
+      (date.getMinutes()),
+      (date.getSeconds())
+  ].join(":");
+    x=document.getElementById('zp').value;
+    d=document.getElementById('rab_dn_mes').value;
+    x1=x*1 / d*1;
+    s=28800;
+    sum=(x1/s*1).toFixed();
+    val=(document.getElementById('final_sum').value *1).toFixed();
+    document.getElementById('rub_sek').value = sum;    
+    document.getElementById('final_sum').value = sum*1 + val*1;
+    document.getElementById("clock").innerHTML = format;
+} ; 
+
+var myVar;
+
+    $( '#but' ).click(function() {
+	myVar = setInterval(function(){ myTimer() }, 900);
+	});
+    $( '#but2' ).click(function() {
+    clearInterval(myVar);
+    });
+});
+
+</script>
+<!DOCTYPE html>
+       
+    </head>
+    <body>
+<center>Тимур-миллиардер version 0.0.19</center>     
+<p>зарплата/месяц : <input type="text" id='zp' name='zp' value='10000000'></p>
+<p>рабочих дней в месяц:<input type="text" id='rab_dn_mes' value='20'></p>
+<p>время работы : <output id='clock'></output> </p>
+ <p>   рублей в секунду:<output id='rub_sek'></output></p>
+<p><button id='but'>ЗА РАБОТУ!</button></p>
+        <p><button id='but2'>СТОПЭ!</button></p>
+<p>Твое богатство увеличивается!!!</p>
+    <p>Ты заработала уже:<output id='final_sum'></output> рублей</p>    
+        
+    </body>
+</html>
